@@ -34,23 +34,23 @@ public class ClientChat {
 			out = connessione.getOutputStream();
 			sOUT = new PrintWriter(out); // trasforma in byte lo stream da inviare printwriter/stream
 			
+			System.out.print("Inserisci l'operazione da eseguire (es.: 5+4)\n"
+					   	   + "Iserisci 'FINE' per retminare il programma");
 			//ciclo infinito termina con fine
 			while (true)
 			{
+				System.out.println("> ");
 				msgDaInviare = tastiera.readLine();
 				if (msgDaInviare.equals("FINE."))
 					break;
 				
-				//Ricezione messaggio dal server
-				msgRicevuto = sIN.readLine();
-				System.out.println("# " + msgRicevuto);
-				
 				//Invia messaggio al server
-				msgDaInviare = "Client 1 --->" + msgDaInviare;
 				sOUT.println(msgDaInviare);
 				sOUT.flush(); //Svuota il buffer
 				
-				
+				//Ricezione messaggio dal server
+				msgRicevuto = sIN.readLine();
+				System.out.println("# Risultato: " + msgRicevuto);
 			}
 
 		} catch (Exception e) {
