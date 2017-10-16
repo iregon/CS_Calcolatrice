@@ -62,22 +62,27 @@ public class ServerChat {
 		String operazione;
 		String ris = "";
 		
+		//Capire quale operazione è richiesta
 		if(op.contains("+")) operazione = "\\+";
 		else if(op.contains("-")) operazione = "-";
 		else if(op.contains("*")) operazione = "\\*";
 		else if(op.contains("/")) operazione = "/";
 		else return "Formato non valido";
-//		
-//		op = op.replaceAll("\\" + operazione, " " + operazione);
 		
+		//Dividere la stringa nel punto in cui è presente il segno dell'operazione
 		String parts[] = op.split(operazione);
+		
+		//Converte i valori da String a int per poter eseguire le
+		//varie operazioni matematiche
 		int a = Integer.parseInt(parts[0]);
 		int b = Integer.parseInt(parts[1]);
 		
+		//Esegue le operazioni in base al segno passato inizialmente e salva il risultato in "ris"
 		if(operazione.equals("\\+")) ris = Integer.toString(a + b);
 		else if(operazione.equals("-")) ris = Integer.toString(a - b);
 		else if(operazione.equals("\\*")) ris = Integer.toString(a * b);
 		else if(operazione.equals("/")) ris = Integer.toString(a / b);
+		
 		return ris;
 	}
 	
