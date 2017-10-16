@@ -34,12 +34,12 @@ public class ClientChat {
 			out = connessione.getOutputStream();
 			sOUT = new PrintWriter(out); // trasforma in byte lo stream da inviare printwriter/stream
 			
-			System.out.print("Inserisci l'operazione da eseguire (es.: 5+4)\n"
-					   	   + "Iserisci 'FINE' per retminare il programma");
+			System.out.println("Inserisci l'operazione da eseguire (es.: 5+4, 5-4, 8*2, 6/3)\n"
+					   	   	 + "Iserisci 'FINE' per terminare il programma");
 			//ciclo infinito termina con fine
 			while (true)
 			{
-				System.out.println("> ");
+				System.out.print("> ");
 				msgDaInviare = tastiera.readLine();
 				if (msgDaInviare.equals("FINE."))
 					break;
